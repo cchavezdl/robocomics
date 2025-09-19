@@ -1,0 +1,18 @@
+roborescate/
+│
+├── main.py
+├── comic_generator.py
+├── images/
+│   ├── scene1.png
+│   ├── scene2.png
+│   └── ...
+├── sounds/
+│   ├── intro.mp3
+│   └── explosion.wav
+├── assets/
+│   └── fonts/
+│       └── comic.ttf
+├── output/
+│   └── comic_final.pdf
+├── requirements.txt
+└── README.md
