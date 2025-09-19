@@ -1,0 +1,18 @@
+ejemplo 
+import requests
+
+def generate_image(prompt, filename):
+    response = requests.post(
+        "https://api.stability.ai/v2beta/stable-image/generate/core",
+        headers={"Authorization": "Bearer TU_API_KEY"},
+        json={"prompt": prompt, "output_format": "png"}
+    )
+    with open(f"images/{filename}.png", "wb") as f:
+        f.write(response.content)
+integracion multimedia
+from pydub import AudioSegment
+from pydub.playback import play
+
+def play_intro_sound():
+    intro = AudioSegment.from_file("sounds/intro.mp3")
+    play(intro)
