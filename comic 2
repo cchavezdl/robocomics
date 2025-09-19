@@ -1,0 +1,41 @@
+codigo base 
+from comic_generator import create_comic
+import os
+
+def main():
+    print("Generando el cómic 'RoboRescate'...")
+    create_comic()
+    print("¡Cómic generado con éxito!")
+
+if __name__ == "__main__":
+    main()
+codigo base 2
+from PIL import Image, ImageDraw, ImageFont
+import os
+
+def add_text_to_image(image_path, text, output_path):
+    image = Image.open(image_path)
+    draw = ImageDraw.Draw(image)
+    font = ImageFont.truetype("assets/fonts/comic.ttf", 24)
+    draw.text((10, 10), text, fill="white", font=font)
+    image.save(output_path)
+
+def create_comic():
+    scenes = [
+        ("images/scene1.png", "En el cielo de Neotrópolis, Nova recibe una señal extraña..."),
+        ("images/scene2.png", "Trixie: ¡Esa señal viene del sector 9!"),
+        ("images/scene3.png", "Nova: Vamos a investigar. ¡No hay tiempo que perder!"),
+        ("images/scene4.png", "Torre de Omega: silencio total..."),
+        ("images/scene5.png", "Doctor Zarnak: ¡Gracias por rescatarme!"),
+        ("images/scene6.png", "Todos celebran la libertad de los androides."),
+    ]
+
+    if not os.path.exists("output"):
+        os.makedirs("output")
+
+    for i, (img_path, text) in enumerate(scenes):
+        output_img = f"output/panel_{i+1}.png"
+        add_text_to_image(img_path, text, output_img)
+
+    print("Cómic completo generado en la carpeta 'output'.")
+
